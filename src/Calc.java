@@ -20,7 +20,6 @@ public class Calc {
      ee.execComm("~");
      System.out.println(ee.pop());
      System.out.println(ee.pop());
-     System.out.println(ee.pop());
      System.out.println(
      ee.calcArray(new String[]{"+1232","-2340","345","/","+","0.456","10.456e-10","/","+"})
      );
@@ -137,7 +136,6 @@ class Action implements  operator{
 //turn.debug("compare "+ token + " vs "+ cmd);
         if(token.equals(cmd)){
 //turn.debug("it's me");
-
             setResult(runIt(getParam()));
             rv++;
         }
