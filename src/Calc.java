@@ -10,22 +10,6 @@ public class Calc {
                   ,new AMult(), new ADiv()
                   ,new AChgS()
                   });
-/*
-     ee.push(1);
-     ee.push(10);
-     ee.push(101);
-     ee.push(1001);
-     ee.push(10001);
-     ee.execComm("+");
-     ee.execComm("~");
-     System.out.println(ee.pop());
-     System.out.println(ee.pop());
-     System.out.println(
-     ee.calcArray(new String[]{"+1232","-2340","345","/","+","0.456","10.456e-10","/","+"})
-     );
-     System.out.println(
-     ee.calcArray(new String[]{"+200.00000","-23","27","-","*","~","0.456","10.456e-10","+","*"})
-     );*/
      System.out.println(
      ee.calcArray(args)
      );
