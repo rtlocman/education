@@ -214,18 +214,14 @@ static public void main(String[] args) {
 		boolean retValue = false;
 		int resIndex;
 		for(int curIdx=0;curIdx<srcCharArray.length;curIdx++){
-System.out.println(srcCharArray[curIdx]);			
 			if(srcCharArray[curIdx]==searchCharArray[0]){
 				for(resIndex=0;resIndex<searchCharArray.length;resIndex++){
-System.out.print(srcCharArray[curIdx+resIndex]);			
 					if(srcCharArray[curIdx+resIndex]!=searchCharArray[resIndex]){
-System.out.println("X");			
 						break;
 					}
 				}
 				if(resIndex == searchCharArray.length){
 					retValue = true;
-System.out.println("");					
 					break;
 				}
 			}
@@ -235,9 +231,7 @@ System.out.println("");
 	}
 //=============================
 	static public long factorial(long x){
-		long rv = ((x>1)?(x*factorial(x-1)):1);
-		System.out.println("x= "+x+ "  "+rv);	
-		return rv;
+		return ((x>1)?(x*factorial(x-1)):1);
 	}
 //=============================
 	static public boolean isLeapYear(int year){
@@ -304,7 +298,6 @@ System.out.println("");
 		int shift = intA1.length;
 		int countOfEq=0;
 		int[] usedIdx = new int[intA1.length+intA2.length];
-
 		for(int ia1=0;ia1<intA1.length;ia1++)
 			for(int ia2=0;ia2<intA2.length;ia2++)
 				if(intA1[ia1] == intA2[ia2]){
@@ -312,15 +305,9 @@ System.out.println("");
 					usedIdx[ia2+shift]++;
 					countOfEq+=((usedIdx[ia1]==1)?1:0)+((usedIdx[ia2+shift]==1)?1:0);
 				}
-System.out.print("index :");				
-for(int i=0;i<usedIdx.length;i++){
-	System.out.print(" "+usedIdx[i]);
-}
 		int[] retValue = new int[usedIdx.length - countOfEq];
-System.out.println("result length = "+retValue.length);
 		for(int i=0,e=0;i<usedIdx.length;i++)
 		   if(usedIdx[i]==0){
-System.out.println(" i="+i+"  "+((i<shift)?"intA1 :"+i:"intA2 :"+(i-shift)));		   	
 			retValue[e++] = ((i<shift)?intA1[i]:intA2[i-shift]);
 		}
 		return retValue;
@@ -345,7 +332,6 @@ System.out.println(" i="+i+"  "+((i<shift)?"intA1 :"+i:"intA2 :"+(i-shift)));
 		for(char c : str.toCharArray()){
 			collectResult += ((c=='@')?2:0);
 			collectResult |= ((c=='.')?1:0);
-System.out.printf(" %c   %x\n",c,collectResult);
 		}
 		return (collectResult == 3);
 	}

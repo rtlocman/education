@@ -126,12 +126,10 @@ public class Task8{
 			for(int i=0;i<byteArray.length;i++)
 				for(int j=i+1;j<byteArray.length;++j)
 					if(byteArray[i] == byteArray[j]){
-//						 System.out.println(" byte "+byteArray[i]+" index "+i+" equal byte "+byteArray[j]+" index "+j);
 						 retValue = true;
 						 break mainLoop;
 					}
 		}
 		return retValue;
-
 	}
 }
