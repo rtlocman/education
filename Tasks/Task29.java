@@ -37,7 +37,8 @@ public class Task29{
 	28. принимает два массива интов, возвращает массив состоящий из всех елементов входящих массивов
 	29. принимает массив интов, возвращает больший из них
 */
-	public static void main(String[] args) {
+//=============================
+static public void main(String[] args) {
 //1. принимает массив чаров, выводит его на экран
 /*		String str = "You can view these locks";
 		outCharArray(str.toCharArray(),false);
@@ -124,9 +125,10 @@ public class Task29{
 		}
 */		
 //22. принимает два массива интов, возвращает массив из елементов которые не совпадают в массивах
-		for(int i: intersctArray(new int[]{1,2,3,4,5,6,7,8,9},new int[]{10,9,8,7,6,5})){
+/*		for(int i: intersctArray(new int[]{1,2,3,4,0,6,7,8,9},new int[]{1,10,9,8,7,6,5,1})){
 			System.out.print(" "+i);
 		}
+*/		
 //23. принимает масив интов, возвращает его же но в реверсном порядке
 /*		for(int i: revArray(new int[]{1,2,3,4,5,6,7,8,9,10})){
 			System.out.print(" "+i);
@@ -136,23 +138,43 @@ public class Task29{
 //	1) размер выходного массива
 //	2) верхняя граница
 // 	возвращает массив интов заданой длинный, который содержит случайные числа от нуля до верхней границы"
+/*		for(int i: genRndArrayFrom0(100,100)){
+			System.out.print(" "+i);
+		}
+*/		
 //25. "принимает 3 инта
 //	1) размер выходного массива
 //	2) нижняя граница
 //	3) верхняя граница
 //	возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы"
+/*		for(int i: genRndArray(100,100,-10)){
+			System.out.print(" "+i);
+		}
+*/		
 //26. принимает строку, возвращает тру если в строка содержит однин символ @, и хотя бы одну точку
+/*		System.out.print("the string is fulfil conditions :"+checkString("ksd.jf sdfkjrew @xdcv @skdj.fsdrf .swer"));	
+		System.out.print("the string is fulfil conditions :"+checkString("ksd.jf sdfkjrew @xdcv skdj.fsdrf .swer"));	
+*/		
 //27. принимает строку, возращает эту же строку, но символы в ней расположены задом-наперед
+//		System.out.print("the string in mirror state  :"+revString("The equals method implements"));
 //28. принимает два массива интов, возвращает массив состоящий из всех елементов входящих массивов
+/*		for(int i: unionArrays(new int[]{1,2,3,4,0,6,7,8,9},new int[]{1,10,9,8,7,6,5,1})){
+			System.out.print(" "+i);
+		}		
+*/		
 //29. принимает массив интов, возвращает больший из них
-//	
+		for(int i: maxArrays(new int[]{1,2,3,4,0,6,7,8,9},new int[]{1,10,8,7,6,5,1})){
+			System.out.print(" "+i);
+		}		
 	}
-  	static void outCharArray(char[] charArray,boolean withEndOfLine){
+ //=============================
+	static public void outCharArray(char[] charArray,boolean withEndOfLine){
   		for(char c : charArray){
   			System.out.printf((withEndOfLine?"\n":"")+"%c",c);
   		}
   	}
-  	static void outStrArray(String[][] stringArray2, String colDelemiter, String rowDelemiter){
+//=============================
+	static public void outStrArray(String[][] stringArray2, String colDelemiter, String rowDelemiter){
   		for(String[] sa: stringArray2){
   			for(String s : sa){
   				System.out.print(s+colDelemiter);
@@ -160,7 +182,8 @@ public class Task29{
   			System.out.print(rowDelemiter);
   		}
   	}
-	static char[][] convInt2Char(int[][] intArrray2){
+//=============================
+	static public char[][] convInt2Char(int[][] intArrray2){
 		char[][] retValue = new char[intArrray2.length][];
 		for(int iRow=0;iRow< intArrray2.length; iRow++){
 			retValue[iRow] = new char[intArrray2[iRow].length];
@@ -170,21 +193,24 @@ public class Task29{
 		}
 		return retValue;
 	}
-	static void invIntArray(int[][] intArrray2){
+//=============================
+	static public void invIntArray(int[][] intArrray2){
 		for(int[] row : intArrray2){
 			for(int i=0;i<row.length;i++){
 				row[i] *= -1;
 			}
 		}
 	}
-	static String charToString(char[] charArray){
+//=============================
+	static public String charToString(char[] charArray){
 		String retValue = "";
 		for(char c: charArray){
 			retValue = retValue + c;
 		}
 		return retValue;
 	}
-	static boolean indexOfCharArray(char[] searchCharArray, char[] srcCharArray){
+//=============================
+	static public boolean indexOfCharArray(char[] searchCharArray, char[] srcCharArray){
 		boolean retValue = false;
 		int resIndex;
 		for(int curIdx=0;curIdx<srcCharArray.length;curIdx++){
@@ -207,25 +233,30 @@ System.out.println("");
 		}
 		return retValue;
 	}
-	static long factorial(long x){
+//=============================
+	static public long factorial(long x){
 		long rv = ((x>1)?(x*factorial(x-1)):1);
 		System.out.println("x= "+x+ "  "+rv);	
 		return rv;
 	}
-	static boolean isLeapYear(int year){
+//=============================
+	static public boolean isLeapYear(int year){
 		return ((year % 4 == 0)||(year % 100 == 0)||(year % 400 == 0));
 	}
 	
-	static void showMultipleNumbers(int elemNum, int[] intArrray){
+//=============================
+	static public void showMultipleNumbers(int elemNum, int[] intArrray){
 		for(int i: intArrray) {
 			System.out.print(((i % elemNum == 0)?(i+" "):""));
 		}
 	}
-	static double round(double value,int precision){
+//=============================
+	static public double round(double value,int precision){
 		double shift = Math.pow(10,precision);
 		return Math.round(value * shift)/shift;
 	}
-	static int[] orderIntArray(boolean direction,int[] intArr){
+//=============================
+	static public int[] orderIntArray(boolean direction,int[] intArr){
 		for(int outerIdx = 0;  outerIdx < intArr.length; outerIdx++){
 			for(int innerIdx = outerIdx; innerIdx< intArr.length; innerIdx++){
 				if(intArr[innerIdx] == intArr[outerIdx]){
@@ -239,13 +270,16 @@ System.out.println("");
 		}
 		return intArr;
 	}
-	static int[] orderIntArrayAsc(int[] intArr){
+//=============================
+	static public int[] orderIntArrayAsc(int[] intArr){
 		return orderIntArray(false,intArr);
 	}
-	static int[] orderIntArrayDesc(int[] intArr){
+//=============================
+	static public int[] orderIntArrayDesc(int[] intArr){
 		return orderIntArray(true,intArr);
 	}
-	static int[] multArray(int[] intA1,int[] intA2){
+//=============================
+	static public int[] multArray(int[] intA1,int[] intA2){
 		int dimm = Math.min(intA1.length,intA2.length);
 		int[] retValue = new int[dimm];
 		for(int i=0;i<dimm;i++){
@@ -254,7 +288,8 @@ System.out.println("");
 		return retValue;
 	}
 		
-	static int[] revArray(int[] intArr){
+//=============================
+	static public int[] revArray(int[] intArr){
 		int last = intArr.length-1;
 		for(int i=0;i<(intArr.length/2);i++){
 			int tmp = intArr[i];
@@ -264,7 +299,8 @@ System.out.println("");
 		return intArr;
 	}
 	
-	static int[] intersctArray(int[] intA1,int[] intA2){
+//=============================
+	static public int[] intersctArray(int[] intA1,int[] intA2){
 		int shift = intA1.length;
 		int countOfEq=0;
 		int[] usedIdx = new int[intA1.length+intA2.length];
@@ -276,12 +312,66 @@ System.out.println("");
 					usedIdx[ia2+shift]++;
 					countOfEq+=((usedIdx[ia1]==1)?1:0)+((usedIdx[ia2+shift]==1)?1:0);
 				}
+System.out.print("index :");				
+for(int i=0;i<usedIdx.length;i++){
+	System.out.print(" "+usedIdx[i]);
+}
 		int[] retValue = new int[usedIdx.length - countOfEq];
+System.out.println("result length = "+retValue.length);
 		for(int i=0,e=0;i<usedIdx.length;i++)
 		   if(usedIdx[i]==0){
-			retValue[e++] = (i>shift)?intA2[i-shift]:intA1[i];
+System.out.println(" i="+i+"  "+((i<shift)?"intA1 :"+i:"intA2 :"+(i-shift)));		   	
+			retValue[e++] = ((i<shift)?intA1[i]:intA2[i-shift]);
 		}
 		return retValue;
 	}
 	
+//=============================
+	static public int[] genRndArrayFrom0(int siseArr,int highBorder){
+		return genRndArray(siseArr,highBorder,0);
+	}
+	
+//=============================
+	static public int[] genRndArray(int siseArr,int highBorder,int lowBorder){
+		int wideBorder = highBorder - lowBorder+1;
+		int[] retValue = new int[siseArr];
+		for(int i=0;i<siseArr;i++)
+			retValue[i] = ((int)(Math.random() * wideBorder) + lowBorder);
+		return retValue;
+	}
+//=============================
+	static public boolean checkString(String str){
+		int collectResult = 0;
+		for(char c : str.toCharArray()){
+			collectResult += ((c=='@')?2:0);
+			collectResult |= ((c=='.')?1:0);
+System.out.printf(" %c   %x\n",c,collectResult);
+		}
+		return (collectResult == 3);
+	}
+//=============================
+	static public int[] unionArrays(int[] intA1,int[] intA2){
+		int idx = 0;
+		int[] retValue = new int[intA1.length+intA2.length];
+		for(int i:intA1)
+			retValue[idx++] = i;
+		for(int i:intA2)
+			retValue[idx++] = i;
+		return retValue;
+	}
+
+//=============================
+	static public int[] maxArrays(int[] intA1,int[] intA2){
+		return ((intA1.length > intA2.length)?intA1:intA2);
+	}
+//=============================
+	static public String revString(String str){
+		char[] src = str.toCharArray();
+		for(int i=0;i<src.length/2;i++){
+			char c = src[src.length-i-1];
+			src[src.length-i-1] = src[i];
+			src[i] = c;
+		} 
+		return String.valueOf(src);
+	}
 }
