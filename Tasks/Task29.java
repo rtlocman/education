@@ -124,7 +124,9 @@ public class Task29{
 		}
 */		
 //22. принимает два массива интов, возвращает массив из елементов которые не совпадают в массивах
-
+		for(int i: intersctArray(new int[]{1,2,3,4,5,6,7,8,9},new int[]{10,9,8,7,6,5})){
+			System.out.print(" "+i);
+		}
 //23. принимает масив интов, возвращает его же но в реверсном порядке
 /*		for(int i: revArray(new int[]{1,2,3,4,5,6,7,8,9,10})){
 			System.out.print(" "+i);
@@ -261,4 +263,25 @@ System.out.println("");
 		}
 		return intArr;
 	}
+	
+	static int[] intersctArray(int[] intA1,int[] intA2){
+		int shift = intA1.length;
+		int countOfEq=0;
+		int[] usedIdx = new int[intA1.length+intA2.length];
+
+		for(int ia1=0;ia1<intA1.length;ia1++)
+			for(int ia2=0;ia2<intA2.length;ia2++)
+				if(intA1[ia1] == intA2[ia2]){
+					usedIdx[ia1]++;
+					usedIdx[ia2+shift]++;
+					countOfEq+=((usedIdx[ia1]==1)?1:0)+((usedIdx[ia2+shift]==1)?1:0);
+				}
+		int[] retValue = new int[usedIdx.length - countOfEq];
+		for(int i=0,e=0;i<usedIdx.length;i++)
+		   if(usedIdx[i]==0){
+			retValue[e++] = (i>shift)?intA2[i-shift]:intA1[i];
+		}
+		return retValue;
+	}
+	
 }
