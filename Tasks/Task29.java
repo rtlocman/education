@@ -44,14 +44,106 @@ public class Task29{
 		outCharArray(str.toCharArray(),true);*/
 //2. принимает 2м массив строк, выводит его на экран
 //		String[][]	strArr2 = {{"qwew","ewwe","eeee"},{"rrr","ffff"}};
-		String[][]	strArr2 =  {{"he","general","contract","of","hashCode","is:"},
+/*		String[][]	strArr2 =  {{"he","general","contract","of","hashCode","is:"},
 								{"Whenever","it","is","invoked","on","the","same","object","more","than","once","during","an","execution","of","a","Java","application,"},
 								{"the","hashCode","method","must","consistently","return","the","same","integer,","provided","no","information","used","in","equals","comparisons","on","the","object","is","modified."},
 								{"This","integer","need","not","remain","consistent","from","one","execution","of","an","application","to","another","execution","of","the","same","application."}};
 
 
 		outStrArray(strArr2," ","\n");
+*/		
 //3. принимает 2м массив интов, возвращает 2мерный массив чаров, каждый символ в позиции массива соответствует коду символа передаваемого инта		
+/*		int[][] intArr2 = {{123,145,17,16},{45,12,75},{15}};
+		char[][] charArr2 = convInt2Char(intArr2);
+		for(char[] row : charArr2){
+			for(char c : row){
+				System.out.print(c+" ");
+			}
+			System.out.println("");	
+		}
+*/
+//4. принимает 2м массив интов,  ивертирует массив интов (каждое значение в передаваемом массиве меняет знак)		
+/*		int[][] intArr2 = {{123,145,17,-16},
+					       {45,-12,75},
+						   {15},
+						   {65535,128,512,-2}};
+		invIntArray(intArr2);
+		for(int[] row : intArr2){
+			for(int i : row){
+				System.out.print(i+" ");
+			}
+			System.out.println("");	
+		}
+*/
+//	5. приминает 2 инта, а и б, возвращает большее их этих 2х чисел
+//	6. принимает 3 инта, возвращает большее из них
+//	7. приминает 5 интов, возвращает большее из них
+// см Task8.java
+//8. принимает массив чаров, возвращает строку состоящую из символов массива
+//		System.out.println(charToString(new char[]{'H','e','l','l','o',' ','W','o','r','l','d','!','!','!'}));
+//9. принимает 2 массива чаров, проверяет есть ли в 1 массиве, такая же последовательность символов которую представляет собой второй массив. Возвращает булеан
+//		System.out.println("the first array is consist in second one its:"+indexOfCharArray(("point of").toCharArray(),("Is this poi? No! This is our point, some point of view").toCharArray()));
+//10. принимает массив интов, и значение типа инт, возвращает индекс массива в котором значение совпадает с передаваемым, начиная с начала массива. Если значения в массиве нет возвращает -1
+//11. принимает массив интов, и значение типа инт, возвращает индекс массива в котором значение совпадает с передаваемым, начиная с конца массива. Если значения в массиве нет возвращает -1
+// см Task8.java
+
+//12. метод принимает инт, и возвращает факториал от заданого инта
+//		System.out.println("20! = "+ factorial(20));	
+//13. принимает инт год, и возвращает тру если год высокосный
+//		System.out.println("Is the 2016 leap-year :"+isLeapYear(2016));
+//14. Принимает массив строк и просто строку, возвращает массив строк которые содержат данную подстроку. т.е. отфильтрованый из первого
+// см Task8.java
+
+//15. приминает массив интов и число, выводит на екран только елементы массива которые кратны этому числу
+//		showMultipleNumbers(3, new int[]{33,124,53,78,901,746,543});
+//16. метод приминает дабл, выводит на екран этот дабл с точностью не больше чем 3 знака после точки
+//		System.out.println("rounded num is = " + round(4235.45683185,3));
+//17. метод принимает массив интов сортирует его по возрастанию
+/*		int[] arr = orderIntArrayAsc(new int[]{123,432,34,5,233,11,45,75,69,32,55,14,300,101});
+		for(int i:arr)
+			System.out.print(" "+i);
+		System.out.println();
+*/		
+//18. метод приминимает массив интов сортирует его по убыванию (нельзя использовать методы сторонних классов)
+/*		arr = orderIntArrayDesc(new int[]{123,432,34,5,233,11,45,75,69,32,55,14,300,101});
+		for(int i:arr)
+			System.out.print(" "+i);
+		System.out.println();
+*/		
+//19. метод принимает массив интов и булен, если булен тру то сортирует по убываниию, иначе по возрастанию
+/*		arr = orderIntArray(false,new int[]{123,432,34,5,233,11,45,75,69,32,55,14,300,101});
+		for(int i:arr)
+			System.out.print(" "+i);
+		System.out.println();
+*/		
+//20. принимает массив байт, если в массиве есть повторяющиеся елементы, возвращает тру
+// см Task8.java
+//21. принимает два массива интов одинаковых по длинне, возращает массив интов который состоит из перемноженных елементов входящих массивов
+/*		for(int i: multArray(new int[]{1,2,3,4,5,6,7,8,9},new int[]{10,9,8,7,6,5})){
+			System.out.print(" "+i);
+		}
+*/		
+//22. принимает два массива интов, возвращает массив из елементов которые не совпадают в массивах
+
+//23. принимает масив интов, возвращает его же но в реверсном порядке
+/*		for(int i: revArray(new int[]{1,2,3,4,5,6,7,8,9,10})){
+			System.out.print(" "+i);
+		}
+*/
+//24. "принимает 2 инта
+//	1) размер выходного массива
+//	2) верхняя граница
+// 	возвращает массив интов заданой длинный, который содержит случайные числа от нуля до верхней границы"
+//25. "принимает 3 инта
+//	1) размер выходного массива
+//	2) нижняя граница
+//	3) верхняя граница
+//	возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы"
+//26. принимает строку, возвращает тру если в строка содержит однин символ @, и хотя бы одну точку
+//27. принимает строку, возращает эту же строку, но символы в ней расположены задом-наперед
+//28. принимает два массива интов, возвращает массив состоящий из всех елементов входящих массивов
+//29. принимает массив интов, возвращает больший из них
+//	
 	}
   	static void outCharArray(char[] charArray,boolean withEndOfLine){
   		for(char c : charArray){
@@ -66,5 +158,107 @@ public class Task29{
   			System.out.print(rowDelemiter);
   		}
   	}
-
+	static char[][] convInt2Char(int[][] intArrray2){
+		char[][] retValue = new char[intArrray2.length][];
+		for(int iRow=0;iRow< intArrray2.length; iRow++){
+			retValue[iRow] = new char[intArrray2[iRow].length];
+			for(int iCol=0;iCol<intArrray2[iRow].length;iCol++){
+				retValue[iRow][iCol] = (char)intArrray2[iRow][iCol];
+			}
+		}
+		return retValue;
+	}
+	static void invIntArray(int[][] intArrray2){
+		for(int[] row : intArrray2){
+			for(int i=0;i<row.length;i++){
+				row[i] *= -1;
+			}
+		}
+	}
+	static String charToString(char[] charArray){
+		String retValue = "";
+		for(char c: charArray){
+			retValue = retValue + c;
+		}
+		return retValue;
+	}
+	static boolean indexOfCharArray(char[] searchCharArray, char[] srcCharArray){
+		boolean retValue = false;
+		int resIndex;
+		for(int curIdx=0;curIdx<srcCharArray.length;curIdx++){
+System.out.println(srcCharArray[curIdx]);			
+			if(srcCharArray[curIdx]==searchCharArray[0]){
+				for(resIndex=0;resIndex<searchCharArray.length;resIndex++){
+System.out.print(srcCharArray[curIdx+resIndex]);			
+					if(srcCharArray[curIdx+resIndex]!=searchCharArray[resIndex]){
+System.out.println("X");			
+						break;
+					}
+				}
+				if(resIndex == searchCharArray.length){
+					retValue = true;
+System.out.println("");					
+					break;
+				}
+			}
+				
+		}
+		return retValue;
+	}
+	static long factorial(long x){
+		long rv = ((x>1)?(x*factorial(x-1)):1);
+		System.out.println("x= "+x+ "  "+rv);	
+		return rv;
+	}
+	static boolean isLeapYear(int year){
+		return ((year % 4 == 0)||(year % 100 == 0)||(year % 400 == 0));
+	}
+	
+	static void showMultipleNumbers(int elemNum, int[] intArrray){
+		for(int i: intArrray) {
+			System.out.print(((i % elemNum == 0)?(i+" "):""));
+		}
+	}
+	static double round(double value,int precision){
+		double shift = Math.pow(10,precision);
+		return Math.round(value * shift)/shift;
+	}
+	static int[] orderIntArray(boolean direction,int[] intArr){
+		for(int outerIdx = 0;  outerIdx < intArr.length; outerIdx++){
+			for(int innerIdx = outerIdx; innerIdx< intArr.length; innerIdx++){
+				if(intArr[innerIdx] == intArr[outerIdx]){
+					//nothing
+				}else if((intArr[innerIdx] > intArr[outerIdx])==direction){
+					int t = intArr[innerIdx];
+					intArr[innerIdx] = intArr[outerIdx];
+					intArr[outerIdx] = t;
+				}
+			}
+		}
+		return intArr;
+	}
+	static int[] orderIntArrayAsc(int[] intArr){
+		return orderIntArray(false,intArr);
+	}
+	static int[] orderIntArrayDesc(int[] intArr){
+		return orderIntArray(true,intArr);
+	}
+	static int[] multArray(int[] intA1,int[] intA2){
+		int dimm = Math.min(intA1.length,intA2.length);
+		int[] retValue = new int[dimm];
+		for(int i=0;i<dimm;i++){
+			retValue[i] = intA1[i] * intA2[i];
+		}
+		return retValue;
+	}
+		
+	static int[] revArray(int[] intArr){
+		int last = intArr.length-1;
+		for(int i=0;i<(intArr.length/2);i++){
+			int tmp = intArr[i];
+			intArr[i] = intArr[last-i];
+			intArr[last-i] = tmp;
+		}
+		return intArr;
+	}
 }
