@@ -1,7 +1,7 @@
 package my.study;
 
 import java.util.*;
-import java.util.function.Consumer;
+//import java.util.function.Consumer;
 
 
 public class HashMaps implements Iterable,Iterator<Entry>{//
@@ -137,6 +137,12 @@ public class HashMaps implements Iterable,Iterator<Entry>{//
 
         return null;
     }
+
+    @Override
+    public void remove() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     protected boolean hasNextElement(){
         return (curElementIdx + 1) < allBackets[curBacketIdx].size();
     }

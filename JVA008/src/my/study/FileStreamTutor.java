@@ -16,30 +16,38 @@ import java.nio.file.Path;
 public class FileStreamTutor {
     public  static void main(String[] args) throws IOException {
       FileUtil fu = new FileUtil();
-        System.out.println(fu.calculateFiles("C:\\apache-tomcat-8.0.30"));
+//        System.out.println(fu.calculateFiles(FileSystems.getDefault().getPath("C:\\windows")));
+        System.out.println(fu.calculateDirs(FileSystems.getDefault().getPath("C:\\windows")));
     }
 }
+/*
+* on my work computer in win dir was found  116872
 
+*
+ */
 class FileUtil{
-    public int calculateFiles(String path) throws IOException {
+    public int calculateFiles(Path path) throws IOException {
         int count = 0;
-//            Files files = new Files();// (path);
-        Path dir = FileSystems.getDefault().getPath(path);
-        for(Path file: Files.newDirectoryStream(dir)){
-            if(!Files.isDirectory(file)&& !Files.isSymbolicLink(file)) {
-                System.out.println(file);
+        for(Path ipath: Files.newDirectoryStream(path)){
+            if(Files.isDirectory(ipath)){
+                if(Files.isExecutable(ipath)){
+                  count+=calculateFiles(ipath);
+                }
+            }else{
+//                System.out.println(ipath);
                 count++;
             }
         }
         return count;
     }
-    public int calculateDirs(String path) throws IOException {
+    public int calculateDirs(Path path) throws IOException {
         int count = 0;
-//            Files files = new Files();// (path);
-        Path dir = FileSystems.getDefault().getPath(path);
-        for(Path file: Files.newDirectoryStream(dir)){
-            if(Files.isDirectory(file)) {
-                System.out.println(file);
+        for(Path ipath: Files.newDirectoryStream(path)){
+            if(Files.isDirectory(ipath)) {
+                if(Files.isExecutable(ipath)){
+                    count+=calculateFiles(ipath);
+                }
+//                System.out.println(ipath);
                 count++;
             }
         }

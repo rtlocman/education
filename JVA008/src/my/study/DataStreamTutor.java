@@ -10,9 +10,10 @@ import java.util.Map;
 public class DataStreamTutor {
     String fileName;
     Map<String,Integer> counts;
-    public static  void main(String[] args) {
+    public static  void main(String[] args) throws IOException {
         System.out.println("DataStreamTutor");
-        DataStreamTutor dataStreamTutor = new DataStreamTutor("");
+        DataStreamTutor dataStreamTutor = new DataStreamTutor("files" + File.separator + "duck_story.txt");
+        dataStreamTutor.parceFile();
     }
 
     public DataStreamTutor(String fileName) {
@@ -23,10 +24,22 @@ public class DataStreamTutor {
     int getSubStringCount(String str){
       return 0;//counts{"str"};
     }
-    void parceFile() throws FileNotFoundException {
-        InputStreamReader inputStreamReader = new InputStreamReader( new BufferedInputStream (new FileInputStream
-                ("files" + File.separator + "duck_story.txt")));\
-//        inputStreamReader.
+    void parceFile() throws IOException {
+        BufferedReader  bufferedReader = new BufferedReader (new InputStreamReader( new FileInputStream
+                (fileName)));
+        String buf;
+        while((buf = bufferedReader.readLine())!=null){
+//            buf.matches()
+//            for(int i = 0; i<buf.length();i++){
+               char ch = buf.charAt(i);
+               if Character.
+            }
+
+            System.out.println(buf);
+        }
+
+
+
     }
 }
 
