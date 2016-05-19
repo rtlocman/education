@@ -31,9 +31,9 @@ public class DataStreamTutor {
         while((buf = bufferedReader.readLine())!=null){
 //            buf.matches()
 //            for(int i = 0; i<buf.length();i++){
-               char ch = buf.charAt(i);
-               if Character.
-            }
+//               char ch = buf.charAt(i);
+//               if Character.
+//            }
 
             System.out.println(buf);
         }
