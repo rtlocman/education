@@ -59,30 +59,44 @@ class  MyEcho implements Runnable{
 
     @Override
     public void run() {
+        while(true){
+        try {
+        Socket socket = serverSocket.accept();
+        OutputStream outputStream = socket.getOutputStream();
+        InputStream inputStream = socket.getInputStream();
 
-        while (true) {
-            try {
-                Socket socket = serverSocket.accept();
-                OutputStream outputStream = socket.getOutputStream();
-                InputStream inputStream = socket.getInputStream();
+        BufferedWriter bufferedWriter = new BufferedWriter(
+                new OutputStreamWriter(outputStream));
 
-                BufferedWriter bufferedWriter = new BufferedWriter(
-                        new OutputStreamWriter(outputStream));
+        BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(inputStream)
+        );
 
-                BufferedReader bufferedReader = new BufferedReader(
-                        new InputStreamReader(inputStream)
-                );
+        bufferedWriter.write("Hi guest!");
+        bufferedWriter.write("type any string please...");
+        bufferedWriter.newLine();
+        bufferedWriter.flush();
 
-                bufferedWriter.write("Hello world");
-                bufferedWriter.flush();
-                bufferedWriter.write(bufferedReader.readLine());
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String mess = bufferedReader.readLine();
+                while(!mess.equals("quit")) {
+                    bufferedWriter.write(mess);
+                    bufferedWriter.newLine();
+
+                    bufferedWriter.flush();
+//                    mess = (bufferedReader != null)? bufferedReader.readLine():"quit";
+                    mess = bufferedReader.readLine();
+                }
+                socket.close();
+        }
+        catch (IOException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        }
+
+
+
         }
     }
-}
+
 
