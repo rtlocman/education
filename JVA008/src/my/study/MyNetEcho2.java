@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by red2 on 20.05.2016.
@@ -14,7 +15,7 @@ public class MyNetEcho2 {
     ServerSocket serverSocket;
 
     public MyNetEcho2() throws IOException {
-        sessionList = new LinkedList<MySession>();
+        sessionList = new CopyOnWriteArrayList<MySession>();
 //        sessionList = new LinkedList<MySession>();
         serverSocket = new ServerSocket(3000);
     }
@@ -29,6 +30,7 @@ public class MyNetEcho2 {
         runner.start();
 
         }
+
     class RegJob implements Runnable{
         final List<MySession> sessionList;
 
@@ -37,23 +39,14 @@ public class MyNetEcho2 {
         }
 
         @Override
-        public void run() {
+        public  void run() {
             while (true){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                }
-
-                try {
-                    synchronized (sessionList){
-                        sessionList.add(new MySession(serverSocket.accept()));
-                    }
+                    try {
+                    sessionList.add(new MySession(serverSocket.accept()));
                     System.out.println("in session list: "+sessionList.size());
                 } catch (IOException e) {
 //                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }
-
             }
         }
     }
@@ -65,12 +58,11 @@ public class MyNetEcho2 {
         }
 
         @Override
-        public void run() {
+        public  void run() {
             while(true){
-//                synchronized (sessionList){
-                for(MySession sess: sessionList){
-//                for(Iterator<MySession> sesionIterator = sessionList.iterator(); sesionIterator.hasNext();){
-//                    MySession sess = sesionIterator.next();
+                Iterator<MySession> sesionIterator = sessionList.iterator();
+                while(sesionIterator.hasNext()){
+                    MySession sess = sesionIterator.next();
                     try {
                         sess.step();
                     } catch (IOException e) {
@@ -80,13 +72,10 @@ public class MyNetEcho2 {
 //                            sessionList.remove(sess);
 //                        }
                 }
-//                }
-
             }
         }
     }
-    }
-
+}
     class MySession{
         Socket socket;
         BufferedWriter bufferedWriter;
@@ -105,7 +94,7 @@ public class MyNetEcho2 {
         public int step() throws IOException {
             int result = 0;
 
-            System.out.print(".");
+//            System.out.print(".");
             if(bufferedReader.ready()){
 
                 String mes = bufferedReader.readLine();
@@ -113,10 +102,10 @@ public class MyNetEcho2 {
                     result--;
                     System.out.print("I'm ready for quit");
                 }
-                System.out.print(" >"+mes);
                 bufferedWriter.write(mes);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+                System.out.print(" >"+mes);
             }
             return result;
         }
