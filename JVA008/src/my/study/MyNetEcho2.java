@@ -67,25 +67,24 @@ public class MyNetEcho2 {
         @Override
         public void run() {
             while(true){
-                synchronized (sessionList){
+//                synchronized (sessionList){
                 for(MySession sess: sessionList){
 //                for(Iterator<MySession> sesionIterator = sessionList.iterator(); sesionIterator.hasNext();){
 //                    MySession sess = sesionIterator.next();
                     try {
                         sess.step();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 //                        if(sess.step()<0){
 //                            sessionList.remove(sess);
 //                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    }
                 }
-                }
+//                }
 
             }
         }
     }
-
     }
 
     class MySession{
@@ -105,8 +104,10 @@ public class MyNetEcho2 {
 
         public int step() throws IOException {
             int result = 0;
+
+            System.out.print(".");
             if(bufferedReader.ready()){
-//                System.out.print(".");
+
                 String mes = bufferedReader.readLine();
                 if(mes.equals("quit")){
                     result--;
