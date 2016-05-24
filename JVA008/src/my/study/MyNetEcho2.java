@@ -11,7 +11,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class MyNetEcho2 {
     List<MySession> sessionList;
-//    LinkedList<MySession> sessionList;
+    //    LinkedList<MySession> sessionList;
     ServerSocket serverSocket;
 
     public MyNetEcho2() throws IOException {
@@ -29,28 +29,29 @@ public class MyNetEcho2 {
         regJobs.start();
         runner.start();
 
-        }
+    }
 
-    class RegJob implements Runnable{
+    class RegJob implements Runnable {
         final List<MySession> sessionList;
 
         RegJob(List<MySession> sessionList) {
-            this.sessionList = sessionList;//Collections.synchronizedList(sessionList);
+            this.sessionList = sessionList;
         }
 
         @Override
-        public  void run() {
-            while (true){
-                    try {
+        public void run() {
+            while (true) {
+                try {
                     sessionList.add(new MySession(serverSocket.accept()));
-                    System.out.println("in session list: "+sessionList.size());
+                    System.out.println("in session list: " + sessionList.size());
                 } catch (IOException e) {
-//                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }
             }
         }
     }
-    class Runner implements  Runnable{
+
+    class Runner implements Runnable {
         List<MySession> sessionList;
 
         Runner(List<MySession> sessionList) {
@@ -58,56 +59,51 @@ public class MyNetEcho2 {
         }
 
         @Override
-        public  void run() {
-            while(true){
+        public void run() {
+            while (true) {
                 Iterator<MySession> sesionIterator = sessionList.iterator();
-                while(sesionIterator.hasNext()){
+                while (sesionIterator.hasNext()) {
                     MySession sess = sesionIterator.next();
                     try {
                         sess.step();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-//                        if(sess.step()<0){
-//                            sessionList.remove(sess);
-//                        }
                 }
             }
         }
     }
 }
-    class MySession{
-        Socket socket;
-        BufferedWriter bufferedWriter;
-        BufferedReader bufferedReader;
 
-        MySession(Socket socket) throws IOException {
-            this.socket = socket;
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            System.out.println("Connected "+socket.getInetAddress().toString());
-            bufferedWriter.write("Hello world");
+class MySession {
+    BufferedWriter bufferedWriter;
+    BufferedReader bufferedReader;
+
+    MySession(Socket socket) throws IOException {
+        bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        System.out.println("Connected " + socket.getInetAddress().toString());
+        bufferedWriter.write("Hello world");
+        bufferedWriter.newLine();
+        bufferedWriter.flush();
+    }
+
+    public int step() throws IOException {
+        int result = 0;
+
+        if (bufferedReader.ready()) {
+
+            String mes = bufferedReader.readLine();
+            if ("quit".equals(mes)) {
+                result--;
+                System.out.print("I'm ready for quit");
+            }
+            bufferedWriter.write(mes);
             bufferedWriter.newLine();
             bufferedWriter.flush();
+            System.out.print(" >" + mes);
         }
-
-        public int step() throws IOException {
-            int result = 0;
-
-//            System.out.print(".");
-            if(bufferedReader.ready()){
-
-                String mes = bufferedReader.readLine();
-                if(mes.equals("quit")){
-                    result--;
-                    System.out.print("I'm ready for quit");
-                }
-                bufferedWriter.write(mes);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
-                System.out.print(" >"+mes);
-            }
-            return result;
-        }
+        return result;
     }
+}
 
