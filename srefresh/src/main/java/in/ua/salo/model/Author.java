@@ -22,15 +22,13 @@ public class Author {
     }
 
 
-    public Author(Long id, String firstName, String lastName) {
-        this.id = id;
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.books = new HashSet<>();
     }
 
-    public Author(Long id, String firstName, String lastName, Set<Book> books) {
-        this.id = id;
+    public Author(String firstName, String lastName, Set<Book> books) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.books = books;

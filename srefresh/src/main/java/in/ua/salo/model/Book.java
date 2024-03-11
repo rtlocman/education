@@ -19,32 +19,17 @@ public class Book {
     @ManyToMany
     private Set<Author> authors= new HashSet<>();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(id, book.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
     public Book() {
     }
 
-    public Book(Long id, String title, String isbn, String publisher, Set<Author> authors) {
-        this.id = id;
+    public Book(String title, String isbn, String publisher, Set<Author> authors) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
         this.authors = authors;
     }
 
-    public Book(Long id, String title, String isbn, String publisher) {
-        this.id = id;
+    public Book(String title, String isbn, String publisher) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
@@ -88,6 +73,19 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
