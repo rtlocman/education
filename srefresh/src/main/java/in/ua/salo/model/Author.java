@@ -2,7 +2,7 @@ package in.ua.salo.model;
 
 
 import jakarta.persistence.*;
-
+//import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -10,8 +10,10 @@ import java.util.Set;
 @Entity
 public class Author {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @org.springframework.data.annotation.Id
     private Long id;
     private String firstName;
     private String lastName;
