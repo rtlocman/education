@@ -6,6 +6,6 @@ public interface CrudService <T, ID>{
     Set<T> findAll();
     T findById(ID id);
     T safe(T object);
-    void delete(ID object);
+    void delete(T object);
     void deleteById(ID id);
 }
