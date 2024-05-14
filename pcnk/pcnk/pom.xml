@@ -11,8 +11,13 @@
 	<groupId>ua.in.salo.pmed</groupId>
 	<artifactId>pcnk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>pcnk</name>
 	<description>pcnk</description>
+	<modules>
+		<module>pcnk_data</module>
+		<module>pcnk_web</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
